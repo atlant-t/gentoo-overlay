@@ -1,0 +1,57 @@
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of ANGIE_MODULES_HTTP USE_EXPAND flags.
+
+access - The module controls access to server resources based on client IP addresses or networks.
+acme - Provides automatic certificate retrieval using the ACME protocol.
+addition - The module is a filter that adds text before and after a response.
+api - The module provides HTTP RESTful interface for accessing in JSON format basic information about a web server instance.
+auth_basic - Allows limiting access to resources by validating the user name and password using the "HTTP Basic Authentication" protocol.
+auth_request - Implements client authorization based on the result of a subrequest.
+autoindex - The module processes requests ending with the slash character (/) and produces a directory listing.
+browser - The module creates variables whose values depend on the value of the "User-Agent" request header field.
+charset - The module adds the specified charset to the "Content-Type" response header field.
+dav - The module is intended for file management automation via the WebDAV protocol.
+degradation - The module allows returning HTTP status codes 204 or 444 for certain locations.
+empty_gif - This module keeps a 1x1 transparent GIF in memory that can be served very quickly.
+fastcgi - The module allows passing requests to a FastCGI server.
+flv - The module provides pseudo-streaming server-side support for Flash Video (FLV) files.
+geo - The module creates variables with values depending on the client IP address.
+geoip - Creates variables with values depending on the client IP address, using the precompiled MaxMind databases or their counterparts.
+grpc - Allows passing requests to a gRPC server.
+gunzip - The module is a filter that decompresses responses with "Content-Encoding: gzip" for clients that do not support "gzip" encoding method.
+gzip - The module is a filter that compresses responses using the "gzip" method.
+gzip_static - Allows sending precompressed files with the ".gz" filename extension instead of regular files.
+image_filter - The module is a filter that transforms images in JPEG, GIF, PNG, and WebP formats.
+limit_conn - The module is used to limit the number of connections per the defined key, in particular, the number of connections from a single IP address.
+limit_req - The module is used to limit the request processing rate per a defined key, in particular, the processing rate of requests coming from a single IP address.
+map - The module creates variables whose values depend on values of other variables.
+memcached - The module is used to obtain responses from a memcached server.
+mirror - The module implements mirroring of an original request by creating background mirror subrequests.
+mp4 - The module provides pseudo-streaming server-side support for MP4 files.
+perl - The module is used to implement location and variable handlers in Perl and insert Perl calls into SSI.
+prometheus - Collects the Angie metrics, using configuration-defined templates, and returns the template-generated metrics in the Prometheus format.
+proxy - Allows passing requests to another (proxied) server.
+random_index - The module processes requests ending with the slash character (/) and picks a random file in a directory to serve as an index file.
+realip - The module is used to change the client address and optional port to those sent in the specified header field.
+referer - The module is used to block access to a site for requests with invalid values in the "Referer" header field.
+rewrite - The module is used to change request URI using PCRE regular expressions, return redirects, and conditionally select configurations.
+scgi - Allows passing requests to SCGI server.
+secure_link - The module is used to check authenticity of requested links, protect resources from unauthorized access, and limit link lifetime.
+slice - The module is a filter that splits a request into subrequests, each returning a certain range of response.
+split_clients - The module emits variables for A/B testing, canary releases, or other scenarios that require routing a percentage of clients to one server or configuration while directing the rest elsewhere.
+ssi - The module is a filter that processes SSI (Server Side Includes) commands in responses passing through it.
+stub_status - The module provides access to basic status information.
+sub - The module is a filter that modifies a response by replacing one specified string by another.
+upstream_hash - This module provides the ability to distribute upstream requests based on hashed key value.
+upstream_ip_hash - This module provides the ability to distribute upstream requests based on the IP-address of the client.
+upstream_keepalive - This module provides the ability to cache connections to upstream servers.
+upstream_least_conn - This module provides the ability to distribute upstream requests using load balancing methods.
+upstream_random - This module implements the random load balancing method.
+upstream_sticky - This module implements session persistence, ensuring all requests in the client session are passed to the same backend server in the upstream.
+upstream_zone - This module makes it possible to define a shared memory zone that keeps the group's configuration and run-time state that are shared between worker processes.
+userid - This module gives out cookies for identification of clients.
+uwsgi - External module for the uWSGI protocol for python web apps.
+xslt - The module is a filter that transforms XML responses using one or more XSLT stylesheets.
+

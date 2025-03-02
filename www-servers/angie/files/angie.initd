@@ -1,0 +1,63 @@
+#!/sbin/openrc-run
+
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+ANGIE_CONFIGFILE=${ANGIE_CONFIGFILE:-/etc/angie/angie.conf}
+
+extra_commands="configtest"
+extra_started_commands="reload"
+
+description="Efficient, powerful, and scalable web server that was forked from nginx."
+description_configtest="Run angie's internal config check."
+description_reload="Reload the angie configuration without losing connections."
+
+command="/usr/sbin/angie"
+pidfile=${ANGIE_PIDFILE:-/run/angie/angie.pid}
+user=${ANGIE_USER:-angie}
+group=${ANGIE_GROUP:-angie}
+start_stop_daemon_args=${ANGIE_SSDARGS:-"--wait 1000"}
+retry="TERM/60/KILL/5"
+
+depend() {
+	need net
+	use dns logger netmount
+}
+
+start_pre() {
+	if [ "${RC_CMD}" != "restart" ]; then
+		configtest || return 1
+	fi
+
+	mkdir -m 0775 -p "/run/angie"
+	chown -R "${user}:${group}" "/run/angie"
+}
+
+stop_pre() {
+	if [ "${RC_CMD}" = "restart" ]; then
+		configtest || return 1
+	fi
+}
+
+stop_post() {
+	rm -f ${pidfile}
+}
+
+reload() {
+	configtest || return 1
+	ebegin "Refreshing angie's configuration"
+	start-stop-daemon --signal SIGHUP --pidfile "${pidfile}"
+	eend $? "Failed to reload nginx"
+}
+
+configtest() {
+	ebegin "Checking angie's configuration"
+
+	${command} -c "${ANGIE_CONFIGFILE}" -t -q
+	if [ $? -ne 0 ]; then
+		${command} -c "${ANGIE_CONFIGFILE}" -t
+	fi
+
+	eend $? "Test failed, please correct errors above"
+}
+

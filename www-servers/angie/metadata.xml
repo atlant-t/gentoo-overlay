@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>
+		<flag name="aio">Enables file AIO support</flag>
+		<flag name="http">Enables HTTP core support</flag>
+		<flag name="http-cache">Enables HTTP cache support</flag>
+		<flag name="ssl">Enables HTTPS module for http. Enables SSL/TLS support for POP3/IMAP/SMTP for mail</flag>
+		<flag name="ktls">Enables Kernel TLS offload (kTLS)</flag>
+		<flag name="threads">Enables the use of thread pools</flag>
+		<flag name="pcre">Enables support for pcre</flag>
+		<flag name="pcre-jit">Enables JIT for pcre</flag>
+		<flag name="pcre2">Enables support for pcre2</flag>
+	</use>
+</pkgmetadata>
+
