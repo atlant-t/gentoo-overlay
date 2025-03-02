@@ -1,0 +1,21 @@
+# Copyright 1999-2025 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# This file contains descriptions of ANGIE_MODULES_STREAM USE_EXPAND flags.
+
+geo - This module creates variables with values depending on the client IP address.
+geoip - This module creates variables with values depending on the client IP address, using the precompiled MaxMind databases.
+limit_conn - This module is used to limit the number of connections per the defined key, in particular, the number of connections from a single IP address.
+map - This module creates variables whose values depend on values of other variables.
+mqtt_preread - This module allows extracting client IDs and usernames from CONNECT packets for Message Queuing Telemetry Transport (MQTT) versions 3.1.1 and 5.0.
+rdp_preread - This module allows extracting cookies, which are used for session identification and management, before making a load balancing decision.
+realip - This module is used to change the client address and port to the ones sent in the PROXY protocol header.
+return - This module allows sending a specified value to the client and then closing the connection.
+set - This module allows setting a value for a variable.
+split_clients - The module emits variables for A/B testing, canary releases, or other scenarios that require routing a percentage of clients to one server or configuration while directing the rest elsewhere.
+ssl_preread - This allows extracting information from the ClientHello message without terminating SSL/TLS, such as the server name requested via SNI or protocols advertised in ALPN.
+upstream_hash - This module provides the ability to distribute upstream requests based on hashed key value.
+upstream_least_conn - This module provides the ability to distribute upstream requests using load balancing methods.
+upstream_random - This module provides the ability to distribute upstream requests using load balancing methods where a request is passed to a randomly selected server.
+upstream_zone - This module makes it possible to define a shared memory zone that keeps the group's configuration and run-time state that are shared between worker processes.
+
