@@ -25,12 +25,12 @@ depend() {
 }
 
 start_pre() {
+	mkdir -m 0775 -p "/run/angie"
+	chown -R "${user}:${group}" "/run/angie"
+
 	if [ "${RC_CMD}" != "restart" ]; then
 		configtest || return 1
 	fi
-
-	mkdir -m 0775 -p "/run/angie"
-	chown -R "${user}:${group}" "/run/angie"
 }
 
 stop_pre() {
